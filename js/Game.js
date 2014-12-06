@@ -80,7 +80,7 @@ Game.initScene = function(){
 
 		Game.camera.position.z = 100;
 
-
+ 
 		// Set up the renderer
 		Game.renderer = new THREE.WebGLRenderer();
 		Game.renderer.setSize( width, height );
