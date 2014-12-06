@@ -49,12 +49,12 @@ var Cube = function(x, y, z, size, color)
 	this.cube.translateY( this.y );
 	this.cube.translateZ( this.z );
 	
-	scene.add( this.cube );
-}
+	Game.scene.add( this.cube );
+};
 
 Cube.prototype.update = function()
 {
 	this.cube.position.x = this.x;
 	this.cube.position.y = this.y;
 	this.cube.position.z = this.z;
-}
+};

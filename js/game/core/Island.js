@@ -21,7 +21,7 @@ var Island = function(x, y, z, size)
 		0x51a606,
 		0x3ba606,
 		0x34880b
-	]
+	];
 	
 	
 	
@@ -96,8 +96,8 @@ var Island = function(x, y, z, size)
 	this.cube.translateY( this.y );
 	this.cube.translateZ( this.z );
 	
-	scene.add( this.cube );
-}
+	Game.scene.add( this.cube );
+};
 
 Island.prototype.update = function()
 {
@@ -110,4 +110,4 @@ Island.prototype.update = function()
 		this.cubes[i].update();
 	}
 	*/
-}
+};
