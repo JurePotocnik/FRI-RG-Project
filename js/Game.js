@@ -45,7 +45,7 @@
 	window.Game = Game;
 })(window);
 
-Game.initScane = function(){
+Game.initScene = function(){
 	if(Game.scene === undefined){
 		Game.scene = new THREE.Scene();
 
