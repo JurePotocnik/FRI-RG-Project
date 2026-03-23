@@ -1,0 +1,18 @@
+[github_app]
+pr_commands = [
+  "/review",
+  "/improve",
+  "/describe --pr_description.publish_description_as_comment=true"
+]
+
+handle_push_trigger = true
+push_commands = [
+  "/review"
+]
+
+[pr_reviewer]
+enable_review_labels_effort = true
+
+[review_agent]
+enabled = true
+publish_output = true
