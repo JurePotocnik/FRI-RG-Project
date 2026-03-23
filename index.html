@@ -1,29 +1,97 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Isles Sandbox</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/library/three.min.js"></script>
+    <script src="./js/library/jquery-2.1.1.min.js"></script>
+    <script src="./js/library/TrackballControls.js"></script>
+    <script src="./js/game/core/mouse.js"></script>
+    <script src="./js/Game.js"></script>
+    <script src="./js/game/core/Island.js"></script>
+    <script src="./js/game/core/Island/Cube.js"></script>
+    <script src="./js/main.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="panel panel--hero">
+        <p class="eyebrow">FRI RG project refresh</p>
+        <h1>Sky Isles Sandbox</h1>
+        <p class="hero-copy">
+          Explore a floating voxel archipelago, switch between generation styles,
+          and inspect animated islands from multiple angles.
+        </p>
 
+        <div class="button-row">
+          <button id="regenerate-world" type="button">Regenerate world</button>
+          <button id="toggle-animation" type="button">Pause drift</button>
+        </div>
+      </aside>
 
-<html>
+      <section class="panel panel--stats">
+        <div>
+          <p class="label">World preset</p>
+          <p id="world-preset" class="value">Balanced</p>
+        </div>
+        <div>
+          <p class="label">Island count</p>
+          <p id="island-count" class="value">0</p>
+        </div>
+        <div>
+          <p class="label">Voxel blocks</p>
+          <p id="voxel-count" class="value">0</p>
+        </div>
+      </section>
 
-	<head>
-		
-		<title>My first Three.js app</title>
-		
-		<meta charset="UTF-8"> 
-		
-		<link rel="stylesheet" href="./css/styles.css">
+      <section class="panel panel--modes">
+        <p class="section-title">Generation styles</p>
+        <div class="preset-list">
+          <button class="preset-button is-active" data-preset="balanced" type="button">Balanced</button>
+          <button class="preset-button" data-preset="scattered" type="button">Scattered</button>
+          <button class="preset-button" data-preset="monument" type="button">Monument</button>
+        </div>
+      </section>
 
-		<script src="./js/library/three.min.js"></script>
-		<script src="./js/library/jquery-2.1.1.min.js"></script>
-		<script src="./js/library/TrackballControls.js"></script>
-		<script src="./js/game/core/mouse.js"></script>
-		<script src="js/Game.js"></script>
-		<script src="./js/game/core/Island.js"></script>
-		<script src="./js/game/core/island/Cube.js"></script>
-		<script src="js/main.js"></script>
-	</head>
-	
-	<body>
+      <section class="panel panel--focus">
+        <p class="section-title">Selected island</p>
+        <h2 id="selected-name">None selected</h2>
+        <p id="selected-description" class="muted">
+          Click an island to inspect its scale, altitude, and terrain density.
+        </p>
+        <div class="focus-grid">
+          <div>
+            <p class="label">Altitude</p>
+            <p id="selected-altitude" class="value">-</p>
+          </div>
+          <div>
+            <p class="label">Blocks</p>
+            <p id="selected-blocks" class="value">-</p>
+          </div>
+        </div>
+        <button id="focus-island" type="button">Focus camera</button>
+      </section>
 
+      <section class="panel panel--controls">
+        <p class="section-title">Controls</p>
+        <ul class="controls-list">
+          <li>Mouse drag to orbit, right drag to pan, wheel to zoom</li>
+          <li>Arrow keys or WASD to pan the camera</li>
+          <li>`R` regenerates, `Space` toggles animation, `F` focuses selection</li>
+          <li>`1`, `2`, `3` switch generation styles</li>
+        </ul>
+      </section>
 
-	</body>
-
+      <main class="scene-panel">
+        <div class="scene-header">
+          <div>
+            <p class="eyebrow">Interactive viewport</p>
+            <p id="status-message" class="status-message">Building floating terrain...</p>
+          </div>
+        </div>
+        <div id="game-root" class="viewport"></div>
+      </main>
+    </div>
+  </body>
 </html>
